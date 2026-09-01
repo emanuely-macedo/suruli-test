@@ -112,6 +112,12 @@ export default function HomeScreen() {
 
     return (
         <View style={styles.container}>
+            <View style={styles.header}>
+                <View>
+                    <Text style={styles.titulo}>Hora de Selecionar!</Text>
+                    <Text style={styles.subtitulo}>Sorteie. Assista. Curta! ✨</Text>
+                </View>
+            </View>
 
             <FlatList
                 data={filmes}
@@ -120,25 +126,8 @@ export default function HomeScreen() {
 
                 ListHeaderComponent={
                     <View>
-
-                        {/* CABEÇALHO */}
-                        <View style={styles.header}>
-                            <Text style={styles.titulo}>
-                                🎬 Suruli
-                            </Text>
-
-                            <Text style={styles.subtitulo}>
-                                Seu cinema, suas escolhas.
-                            </Text>
-                        </View>
-
-                        {/* ADICIONAR FILME */}
                         <View style={styles.secao}>
-
-                            <Text style={styles.tituloSecao}>
-                                Adicione um filme
-                            </Text>
-
+                            <Text style={styles.tituloSecao}>Adicione um filme</Text>
                             <TextInput
                                 style={styles.input}
                                 placeholder="Digite o nome do filme..."
@@ -147,66 +136,30 @@ export default function HomeScreen() {
                                 onChangeText={setFilme}
                                 onSubmitEditing={adicionarFilme}
                             />
-
-                            <TouchableOpacity
-                                style={styles.botaoAdicionar}
-                                onPress={adicionarFilme}
-                            >
-                                <Text style={styles.textoBotao}>
-                                    + Adicionar filme
-                                </Text>
+                            <TouchableOpacity style={styles.botaoAdicionar} onPress={adicionarFilme}>
+                                <Text style={styles.textoBotao}>Adicionar filme</Text>
                             </TouchableOpacity>
-
                         </View>
 
-                        {/* SORTEIO */}
                         <View style={styles.sorteio}>
+                            <Text style={styles.tituloSorteio}>🎲 O que vamos assistir?</Text>
+                            <Text style={styles.textoSorteio}>Deixe o Suruli decidir por você.</Text>
 
-                            <Text style={styles.tituloSorteio}>
-                                🎲 O que vamos assistir?
-                            </Text>
-
-                            <Text style={styles.textoSorteio}>
-                                Deixe o Suruli decidir por você.
-                            </Text>
-
-                            <TouchableOpacity
-                                style={styles.botaoSortear}
-                                onPress={sortearFilme}
-                            >
-                                <Text style={styles.textoBotaoSortear}>
-                                    SORTEAR FILME
-                                </Text>
+                            <TouchableOpacity style={styles.botaoSortear} onPress={sortearFilme}>
+                                <Text style={styles.textoBotaoSortear}>SORTEAR FILME</Text>
                             </TouchableOpacity>
 
-                            {/* RESULTADO */}
                             {filmeSorteado && (
                                 <View style={styles.resultado}>
-
-                                    <Text style={styles.labelResultado}>
-                                        Filme escolhido:
-                                    </Text>
-
-                                    <Text style={styles.nomeSorteado}>
-                                        🎬 {filmeSorteado.titulo}
-                                    </Text>
-
+                                    <Text style={styles.labelResultado}>Filme escolhido:</Text>
+                                    <Text style={styles.nomeSorteado}>🎬 {filmeSorteado.titulo}</Text>
                                 </View>
                             )}
-
                         </View>
 
-                        {/* TÍTULO DA LISTA */}
                         <View style={styles.cabecalhoLista}>
-
-                            <Text style={styles.tituloSecao}>
-                                Meus filmes
-                            </Text>
-
-                            <Text style={styles.quantidade}>
-                                {filmes.length}
-                            </Text>
-
+                            <Text style={styles.tituloSecao}>Meus filmes</Text>
+                            <Text style={styles.quantidade}>{filmes.length}</Text>
                         </View>
 
                     </View>
@@ -214,53 +167,27 @@ export default function HomeScreen() {
 
                 ListEmptyComponent={
                     <View style={styles.vazio}>
-
-                        <Text style={styles.iconeVazio}>
-                            🎞️
-                        </Text>
-
-                        <Text style={styles.textoVazio}>
-                            Nenhum filme adicionado ainda.
-                        </Text>
-
-                        <Text style={styles.subtextoVazio}>
-                            Adicione alguns filmes para começar!
-                        </Text>
-
+                        <Text style={styles.iconeVazio}>🎞️</Text>
+                        <Text style={styles.textoVazio}>Nenhum filme adicionado ainda.</Text>
+                        <Text style={styles.subtextoVazio}>Adicione alguns filmes para começar!</Text>
                     </View>
                 }
 
                 renderItem={({ item }) => (
-
                     <View style={styles.card}>
-
                         <View style={styles.infoFilme}>
-
-                            <Text style={styles.iconeFilme}>
-                                🎬
-                            </Text>
-
-                            <Text style={styles.nomeFilme}>
-                                {item.titulo}
-                            </Text>
-
+                            <Text style={styles.iconeFilme}>🎬</Text>
+                            <Text style={styles.nomeFilme}>{item.titulo}</Text>
                         </View>
 
                         <TouchableOpacity
-                            onPress={() => removerFilme(item.id)}
-                        >
-                            <Text style={styles.botaoRemover}>
-                                🗑️
-                            </Text>
+                            onPress={() => removerFilme(item.id)}>
+                            <Text style={styles.botaoRemover}>✖</Text>
                         </TouchableOpacity>
-
                     </View>
-
                 )}
-
                 contentContainerStyle={styles.lista}
             />
-
         </View>
     );
 }
@@ -272,26 +199,28 @@ const styles = StyleSheet.create({
         backgroundColor: "#F7FAFE",
     },
 
-    lista: {
-        padding: 20,
-        paddingBottom: 40,
-    },
-
     header: {
-        marginBottom: 25,
-        marginTop: 10,
+        paddingLeft: 20,
+        paddingTop: 20,
+        flexDirection: "row",
+        alignItems: "center",
+        padding: 10,
     },
 
     titulo: {
-        fontSize: 32,
+        fontSize: 20,
         fontWeight: "bold",
         color: "#004C94",
     },
 
     subtitulo: {
-        fontSize: 15,
+        fontSize: 14,
         color: "#7890A5",
-        marginTop: 4,
+    },
+
+    lista: {
+        padding: 20,
+        paddingBottom: 40,
     },
 
     secao: {
@@ -299,7 +228,6 @@ const styles = StyleSheet.create({
         padding: 18,
         borderRadius: 20,
         marginBottom: 20,
-
         shadowColor: "#004C94",
         shadowOffset: {
             width: 0,
@@ -318,11 +246,11 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        height: 50,
+        height: 40,
         borderWidth: 1,
         borderColor: "#D9E3ED",
         borderRadius: 12,
-        paddingHorizontal: 15,
+        paddingHorizontal: 10,
         fontSize: 15,
         color: "#17324D",
         backgroundColor: "#F7FAFE",
@@ -330,7 +258,7 @@ const styles = StyleSheet.create({
 
     botaoAdicionar: {
         backgroundColor: "#004C94",
-        height: 50,
+        height: 40,
         borderRadius: 12,
         alignItems: "center",
         justifyContent: "center",
@@ -372,7 +300,7 @@ const styles = StyleSheet.create({
 
     textoBotaoSortear: {
         color: "#FFFFFF",
-        fontSize: 15,
+        fontSize: 13,
         fontWeight: "bold",
     },
 
@@ -391,7 +319,7 @@ const styles = StyleSheet.create({
     },
 
     nomeSorteado: {
-        fontSize: 22,
+        fontSize: 18,
         fontWeight: "bold",
         color: "#17324D",
         marginTop: 5,
@@ -443,7 +371,7 @@ const styles = StyleSheet.create({
     },
 
     iconeFilme: {
-        fontSize: 24,
+        fontSize: 20,
         marginRight: 12,
     },
 

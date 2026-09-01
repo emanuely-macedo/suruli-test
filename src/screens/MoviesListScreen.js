@@ -43,22 +43,6 @@ const filmes = [
     },
     {
         id: "6",
-        titulo: "Jurassic Park",
-        genero: "Aventura / Ficção científica",
-        nota: "8.0",
-        imagem: "https://vice-press.com/products/jurassic-park-editions-movie-poster-paul-mann?srsltid=AfmBOoquglS4-HxVCq6ABB7BmULRjC8fqrD0apWJrulvy2Z-Ignv1SET",
-        descricao: "Um parque criado com dinossauros geneticamente recriados sai do controle."
-    },
-    {
-        id: "7",
-        titulo: "Harry Potter e a Pedra Filosofal",
-        genero: "Fantasia / Aventura",
-        nota: "7.9",
-        imagem: "https://image.tmdb.org/t/p/w500/7xXJ15VEf7G9GdAuV1ZfT6xQYQO.jpg",
-        descricao: "Um jovem descobre que é um bruxo e começa seus estudos em Hogwarts."
-    },
-    {
-        id: "8",
         titulo: "Vingadores: Ultimato",
         genero: "Ação / Ficção científica",
         nota: "8.2",
@@ -66,15 +50,7 @@ const filmes = [
         descricao: "Os Vingadores enfrentam as consequências da batalha contra Thanos e tentam salvar o universo."
     },
     {
-        id: "9",
-        titulo: "O Rei Leão",
-        genero: "Animação / Aventura",
-        nota: "8.5",
-        imagem: "https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLq1I7qZ9.jpg",
-        descricao: "Simba precisa enfrentar seu passado e assumir seu lugar como rei das Terras do Reino."
-    },
-    {
-        id: "10",
+        id: "7",
         titulo: "Forrest Gump",
         genero: "Drama / Romance",
         nota: "8.8",
