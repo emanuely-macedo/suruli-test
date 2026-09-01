@@ -7,7 +7,79 @@ const filmes = [
         genero: "Ficção científica",
         nota: "8.7",
         imagem: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
-        descricao: "Uma emocionante viagem pelo espaço, pelo tempo e pela relação entre pai e filha."
+        descricao: "Uma equipe de astronautas atravessa um buraco de minhoca em busca de um novo lar para a humanidade."
+    },
+    {
+        id: "2",
+        titulo: "O Poderoso Chefão",
+        genero: "Crime / Drama",
+        nota: "9.2",
+        imagem: "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+        descricao: "A história da família Corleone e de sua influência no mundo do crime organizado."
+    },
+    {
+        id: "3",
+        titulo: "O Senhor dos Anéis: O Retorno do Rei",
+        genero: "Fantasia / Aventura",
+        nota: "9.0",
+        imagem: "https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
+        descricao: "A batalha final pela Terra-média se aproxima enquanto Frodo e Sam tentam destruir o Um Anel."
+    },
+    {
+        id: "4",
+        titulo: "Titanic",
+        genero: "Romance / Drama",
+        nota: "7.9",
+        imagem: "https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg",
+        descricao: "Um romance nasce durante a viagem do lendário navio Titanic."
+    },
+    {
+        id: "5",
+        titulo: "Matrix",
+        genero: "Ficção científica / Ação",
+        nota: "8.2",
+        imagem: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+        descricao: "Um programador descobre que a realidade como conhece é uma elaborada simulação."
+    },
+    {
+        id: "6",
+        titulo: "Jurassic Park",
+        genero: "Aventura / Ficção científica",
+        nota: "8.0",
+        imagem: "https://vice-press.com/products/jurassic-park-editions-movie-poster-paul-mann?srsltid=AfmBOoquglS4-HxVCq6ABB7BmULRjC8fqrD0apWJrulvy2Z-Ignv1SET",
+        descricao: "Um parque criado com dinossauros geneticamente recriados sai do controle."
+    },
+    {
+        id: "7",
+        titulo: "Harry Potter e a Pedra Filosofal",
+        genero: "Fantasia / Aventura",
+        nota: "7.9",
+        imagem: "https://image.tmdb.org/t/p/w500/7xXJ15VEf7G9GdAuV1ZfT6xQYQO.jpg",
+        descricao: "Um jovem descobre que é um bruxo e começa seus estudos em Hogwarts."
+    },
+    {
+        id: "8",
+        titulo: "Vingadores: Ultimato",
+        genero: "Ação / Ficção científica",
+        nota: "8.2",
+        imagem: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+        descricao: "Os Vingadores enfrentam as consequências da batalha contra Thanos e tentam salvar o universo."
+    },
+    {
+        id: "9",
+        titulo: "O Rei Leão",
+        genero: "Animação / Aventura",
+        nota: "8.5",
+        imagem: "https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLq1I7qZ9.jpg",
+        descricao: "Simba precisa enfrentar seu passado e assumir seu lugar como rei das Terras do Reino."
+    },
+    {
+        id: "10",
+        titulo: "Forrest Gump",
+        genero: "Drama / Romance",
+        nota: "8.8",
+        imagem: "https://image.tmdb.org/t/p/w500/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg",
+        descricao: "A vida extraordinária de Forrest Gump atravessa diversos momentos importantes da história dos Estados Unidos."
     },
 ];
 
@@ -66,7 +138,7 @@ const styles = StyleSheet.create({
     },
 
     titulo: {
-        fontSize: 26,
+        fontSize: 20,
         fontWeight: "bold",
         color: "#004C94",
     },
@@ -82,29 +154,35 @@ const styles = StyleSheet.create({
     },
 
     card: {
-        backgroundColor: "#FFFFFF",
-        borderRadius: 20,
-        paddingTop: 10,
-        marginBottom: 500,
-        overflow: "hidden",
-        shadowColor: "#004C94",
+        width: "100%",
+        height: 160,
+        backgroundColor: "#fff",
+        borderRadius: 15,
+        padding: 10,
+        flexDirection: "row",
+        alignItems: "center",
+        marginBottom: 12,
+        shadowColor: "#004c94",
         shadowOffset: {
             width: 0,
-            height: 4,
+            height: 2,
         },
-        shadowOpacity: 0.12,
-        shadowRadius: 8,
-        elevation: 4,
+        shadowOpacity: 0.08,
+        shadowRadius: 5,
+        elevation: 3,
     },
 
     imagem: {
-        width: 345,
-        height: 570,
+        width: 85,
+        height: 125,
+        borderRadius: 10,
         resizeMode: "cover",
     },
 
     informacoes: {
-        padding: 16,
+        flex: 1,
+        marginLeft: 12,
+        justifyContent: "center",
     },
 
     tituloContainer: {
@@ -114,14 +192,14 @@ const styles = StyleSheet.create({
     },
 
     nome: {
-        flex: 1,
-        fontSize: 20,
+        flexShrink: 1,
+        fontSize: 16,
         fontWeight: "bold",
         color: "#17324D",
     },
 
     genero: {
-        fontSize: 13,
+        fontSize: 12,
         color: "#7890A5",
         marginTop: 5,
     },
@@ -133,9 +211,9 @@ const styles = StyleSheet.create({
     },
 
     estrela: {
-        fontSize: 17,
+        fontSize: 15,
         color: "#F4B942",
-        marginRight: 5,
+        marginRight: 3,
     },
 
     nota: {
@@ -145,7 +223,8 @@ const styles = StyleSheet.create({
     },
 
     descricao: {
-        fontSize: 14,
+        flexShrink: 1, 
+        fontSize: 12,
         color: "#64788B",
         lineHeight: 20,
         marginTop: 10,
